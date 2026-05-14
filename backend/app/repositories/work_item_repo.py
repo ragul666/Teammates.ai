@@ -89,7 +89,6 @@ class WorkItemRepository:
     async def update(self, item: LeadWorkItem) -> LeadWorkItem:
         """Save changes to a work item."""
         await self.db.flush()
-        await self.db.refresh(item)
         return item
 
     async def get_stats(self, organization_id: uuid.UUID) -> dict:
